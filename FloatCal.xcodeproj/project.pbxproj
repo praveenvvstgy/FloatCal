@@ -7,17 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC41338A1C8C821E00FE7CFA /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4133891C8C821E00FE7CFA /* EventMonitor.swift */; };
 		AC63E8671C54CB3200D4C116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8661C54CB3200D4C116 /* AppDelegate.swift */; };
 		AC63E8691C54CB3200D4C116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC63E8681C54CB3200D4C116 /* Assets.xcassets */; };
 		AC63E86C1C54CB3200D4C116 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC63E86A1C54CB3200D4C116 /* MainMenu.xib */; };
+		AC63E87C1C54CBC800D4C116 /* PGCalendarBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8761C54CBC800D4C116 /* PGCalendarBackground.m */; };
+		AC63E87D1C54CBC800D4C116 /* PGCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8781C54CBC800D4C116 /* PGCalendarCell.m */; };
+		AC63E87E1C54CBC800D4C116 /* PGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */; };
+		AC63E87F1C54CBC800D4C116 /* PGCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC4133891C8C821E00FE7CFA /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		AC41338B1C8C837F00FE7CFA /* FloatCal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FloatCal-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC63E8631C54CB3200D4C116 /* FloatCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC63E8661C54CB3200D4C116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC63E8681C54CB3200D4C116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC63E86B1C54CB3200D4C116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AC63E86D1C54CB3200D4C116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC63E8751C54CBC800D4C116 /* PGCalendarBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCalendarBackground.h; sourceTree = "<group>"; };
+		AC63E8761C54CBC800D4C116 /* PGCalendarBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCalendarBackground.m; sourceTree = "<group>"; };
+		AC63E8771C54CBC800D4C116 /* PGCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCalendarCell.h; sourceTree = "<group>"; };
+		AC63E8781C54CBC800D4C116 /* PGCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCalendarCell.m; sourceTree = "<group>"; };
+		AC63E8791C54CBC800D4C116 /* PGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCalendarView.h; sourceTree = "<group>"; };
+		AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCalendarView.m; sourceTree = "<group>"; };
+		AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGCalendarView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +64,29 @@
 		AC63E8651C54CB3200D4C116 /* FloatCal */ = {
 			isa = PBXGroup;
 			children = (
+				AC63E8741C54CBC800D4C116 /* PGCalendar */,
 				AC63E8661C54CB3200D4C116 /* AppDelegate.swift */,
+				AC41338B1C8C837F00FE7CFA /* FloatCal-Bridging-Header.h */,
 				AC63E8681C54CB3200D4C116 /* Assets.xcassets */,
 				AC63E86A1C54CB3200D4C116 /* MainMenu.xib */,
 				AC63E86D1C54CB3200D4C116 /* Info.plist */,
+				AC4133891C8C821E00FE7CFA /* EventMonitor.swift */,
 			);
 			path = FloatCal;
+			sourceTree = "<group>";
+		};
+		AC63E8741C54CBC800D4C116 /* PGCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				AC63E8751C54CBC800D4C116 /* PGCalendarBackground.h */,
+				AC63E8761C54CBC800D4C116 /* PGCalendarBackground.m */,
+				AC63E8771C54CBC800D4C116 /* PGCalendarCell.h */,
+				AC63E8781C54CBC800D4C116 /* PGCalendarCell.m */,
+				AC63E8791C54CBC800D4C116 /* PGCalendarView.h */,
+				AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */,
+				AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */,
+			);
+			path = PGCalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC63E87F1C54CBC800D4C116 /* PGCalendarView.xib in Resources */,
 				AC63E8691C54CB3200D4C116 /* Assets.xcassets in Resources */,
 				AC63E86C1C54CB3200D4C116 /* MainMenu.xib in Resources */,
 			);
@@ -128,7 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC63E87C1C54CBC800D4C116 /* PGCalendarBackground.m in Sources */,
+				AC41338A1C8C821E00FE7CFA /* EventMonitor.swift in Sources */,
+				AC63E87E1C54CBC800D4C116 /* PGCalendarView.m in Sources */,
 				AC63E8671C54CB3200D4C116 /* AppDelegate.swift in Sources */,
+				AC63E87D1C54CBC800D4C116 /* PGCalendarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +271,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.praveengowda.app.FloatCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FloatCal/FloatCal-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -247,6 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.praveengowda.app.FloatCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FloatCal/FloatCal-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -269,6 +307,7 @@
 				AC63E8721C54CB3200D4C116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
