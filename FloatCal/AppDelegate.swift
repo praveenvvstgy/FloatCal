@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, PGCalendarViewDelegate, NSPopoverDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
 
     @IBOutlet weak var window: NSWindow!
     
@@ -24,25 +24,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, PGCalendarViewDelegate, NSPo
             let today = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate())
             button.image = NSImage(named: "Calendar \(today.day)")
             button.action = Selector("toggleCalendar:")
+            button.target = self
         }
         
-        let calendar = PGCalendarView()
-        calendar.delegate = self
-        calendar.date  = NSDate()
-        calendar.selectionColor = NSColor.lightGrayColor()
-        calendar.todayMarkerColor = NSColor(red:0.67, green:0.24, blue:0.24, alpha:1)
+        let calendar = CalendarContentViewController()
         
         popover.contentViewController = calendar
         popover.contentSize = calendar.view.frame.size
         popover.appearance = NSAppearance(named: NSAppearanceNameAqua)
         
         popover.animates = true
-        popover.behavior = .Transient
+        popover.behavior = .ApplicationDefined
         popover.delegate = self
         
         eventMonitor = EventMonitor(mask: [NSEventMask.LeftMouseDownMask, NSEventMask.RightMouseDownMask], handler: { [unowned self](event) -> () in
             if self.popover.shown {
-                self.popover.close()
+                self.toggleCalendar(self.statusItem.button!)
             }
             })
         eventMonitor?.start()
@@ -50,6 +47,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, PGCalendarViewDelegate, NSPo
         NSNotificationCenter.defaultCenter().addObserverForName(NSCalendarDayChangedNotification, object: nil, queue: nil) { (notification) -> Void in
             let today = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate())
             self.statusItem.button?.image = NSImage(named: "Calendar \(today.day)")
+        }
+        
+        NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMaskFromType(.LeftMouseDown)) { (eventreq) -> NSEvent? in
+            if eventreq.window == self.statusItem.button?.window {
+                self.toggleCalendar(self.statusItem.button!)
+                return nil
+            }
+            return eventreq
         }
     }
     
@@ -66,15 +71,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, PGCalendarViewDelegate, NSPo
             let today = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate())
             button.image = NSImage(named: "Calendar \(today.day)")
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: .MinY)
+            button.highlighted = true
         }
-    }
-    
-    func didSelectDate(selectedDate: NSDate!) {
-        //        print(selectedDate)
+
     }
     
     func hideCalendar(sender: AnyObject) {
+        statusItem.button?.highlighted = false
         popover.performClose(sender)
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

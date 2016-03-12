@@ -99,6 +99,10 @@
 			
 			//title
 			NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: self.owner.textColor};
+            
+            if (self.selected) {
+                attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: self.owner.selectedTextColor};
+            }
 			
 			NSSize size = [self.title sizeWithAttributes:attrs];
 			
@@ -116,14 +120,33 @@
 			[topLine lineToPoint:NSMakePoint(NSMaxX(bounds), NSMinY(bounds))];
 			[self.owner.dayMarkerColor set];
 			topLine.lineWidth = 0.3f;
-			[topLine stroke];
+//			[topLine stroke];
 			if([self isToday]) {
 				[self.owner.todayMarkerColor set];
+                
 				NSBezierPath* bottomLine = [NSBezierPath bezierPath];
 				[bottomLine moveToPoint:NSMakePoint(NSMinX(bounds), NSMaxY(bounds))];
 				[bottomLine lineToPoint:NSMakePoint(NSMaxX(bounds), NSMaxY(bounds))];
 				bottomLine.lineWidth = 4.0f;
 				[bottomLine stroke];
+                
+                NSBezierPath* topLine = [NSBezierPath bezierPath];
+                [topLine moveToPoint:NSMakePoint(NSMinX(bounds), NSMinY(bounds))];
+                [topLine lineToPoint:NSMakePoint(NSMaxX(bounds), NSMinY(bounds))];
+                topLine.lineWidth = 4.0f;
+                [topLine stroke];
+                
+                NSBezierPath* leftLine = [NSBezierPath bezierPath];
+                [leftLine moveToPoint:NSMakePoint(NSMinX(bounds), NSMaxY(bounds))];
+                [leftLine lineToPoint:NSMakePoint(NSMinX(bounds), NSMinY(bounds))];
+                leftLine.lineWidth = 4.0f;
+                [leftLine stroke];
+                
+                NSBezierPath* rightLine = [NSBezierPath bezierPath];
+                [rightLine moveToPoint:NSMakePoint(NSMaxX(bounds), NSMaxY(bounds))];
+                [rightLine lineToPoint:NSMakePoint(NSMaxX(bounds), NSMinY(bounds))];
+                rightLine.lineWidth = 4.0f;
+                [rightLine stroke];
 			}
 		}
 		[NSGraphicsContext restoreGraphicsState];

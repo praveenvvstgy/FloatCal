@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11644FDC9A8AF62E13AFEB4 /* Pods_FloatCal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA27318E609DE2B4EFBF749 /* Pods_FloatCal.framework */; };
 		AC41338A1C8C821E00FE7CFA /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4133891C8C821E00FE7CFA /* EventMonitor.swift */; };
 		AC63E8671C54CB3200D4C116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8661C54CB3200D4C116 /* AppDelegate.swift */; };
 		AC63E8691C54CB3200D4C116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC63E8681C54CB3200D4C116 /* Assets.xcassets */; };
@@ -15,9 +16,31 @@
 		AC63E87D1C54CBC800D4C116 /* PGCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8781C54CBC800D4C116 /* PGCalendarCell.m */; };
 		AC63E87E1C54CBC800D4C116 /* PGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */; };
 		AC63E87F1C54CBC800D4C116 /* PGCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */; };
+		ACEBE2271C9338EB001C8410 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */; };
+		ACEBE2281C9338EB001C8410 /* CalendarContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */; };
+		ACEBE2371C93B898001C8410 /* ModernLookOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */; };
+		ACEBE2391C93B997001C8410 /* ModernLookOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */; };
+		ACEBE23A1C93B997001C8410 /* ModernLookOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACEBE23E1C93DB9E001C8410 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBE23D1C93DB9E001C8410 /* Toolbar.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		ACEBE23B1C93B997001C8410 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ACEBE23A1C93B997001C8410 /* ModernLookOSX.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2BA27318E609DE2B4EFBF749 /* Pods_FloatCal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FloatCal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8993EEE738151528F4AC33 /* Pods-FloatCal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatCal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FloatCal/Pods-FloatCal.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4133891C8C821E00FE7CFA /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		AC41338B1C8C837F00FE7CFA /* FloatCal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FloatCal-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC63E8631C54CB3200D4C116 /* FloatCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +55,11 @@
 		AC63E8791C54CBC800D4C116 /* PGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCalendarView.h; sourceTree = "<group>"; };
 		AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCalendarView.m; sourceTree = "<group>"; };
 		AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGCalendarView.xib; sourceTree = "<group>"; };
+		ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
+		ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarContentViewController.xib; sourceTree = "<group>"; };
+		ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModernLookOSX.framework; path = "../../../Library/Developer/Xcode/DerivedData/ModernLookOSX-dgbgqehdcogkfqgtjqidthvexklx/Build/Products/Debug/ModernLookOSX.framework"; sourceTree = "<group>"; };
+		ACEBE23D1C93DB9E001C8410 /* Toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		B955C8503EE926ADD7EC115D /* Pods-FloatCal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatCal.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloatCal/Pods-FloatCal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +67,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11644FDC9A8AF62E13AFEB4 /* Pods_FloatCal.framework in Frameworks */,
+				ACEBE2391C93B997001C8410 /* ModernLookOSX.framework in Frameworks */,
+				ACEBE2371C93B898001C8410 /* ModernLookOSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A2927E032615356D55387E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B8993EEE738151528F4AC33 /* Pods-FloatCal.debug.xcconfig */,
+				B955C8503EE926ADD7EC115D /* Pods-FloatCal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9EC3F9370C3ADCFDAE70B27B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */,
+				2BA27318E609DE2B4EFBF749 /* Pods_FloatCal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC63E85A1C54CB3200D4C116 = {
 			isa = PBXGroup;
 			children = (
 				AC63E8651C54CB3200D4C116 /* FloatCal */,
 				AC63E8641C54CB3200D4C116 /* Products */,
+				31A2927E032615356D55387E /* Pods */,
+				9EC3F9370C3ADCFDAE70B27B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +122,9 @@
 				AC63E86A1C54CB3200D4C116 /* MainMenu.xib */,
 				AC63E86D1C54CB3200D4C116 /* Info.plist */,
 				AC4133891C8C821E00FE7CFA /* EventMonitor.swift */,
+				ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */,
+				ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */,
+				ACEBE23D1C93DB9E001C8410 /* Toolbar.swift */,
 			);
 			path = FloatCal;
 			sourceTree = "<group>";
@@ -96,9 +150,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC63E8701C54CB3200D4C116 /* Build configuration list for PBXNativeTarget "FloatCal" */;
 			buildPhases = (
+				BFF1FEBDB7EF04A5D8BE4F94 /* Check Pods Manifest.lock */,
 				AC63E85F1C54CB3200D4C116 /* Sources */,
 				AC63E8601C54CB3200D4C116 /* Frameworks */,
 				AC63E8611C54CB3200D4C116 /* Resources */,
+				F8465A4D96941811DB27E5B9 /* Embed Pods Frameworks */,
+				DC095BC0F4590502AE97EA42 /* Copy Pods Resources */,
+				ACEBE23B1C93B997001C8410 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,17 +207,68 @@
 			files = (
 				AC63E87F1C54CBC800D4C116 /* PGCalendarView.xib in Resources */,
 				AC63E8691C54CB3200D4C116 /* Assets.xcassets in Resources */,
+				ACEBE2281C9338EB001C8410 /* CalendarContentViewController.xib in Resources */,
 				AC63E86C1C54CB3200D4C116 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BFF1FEBDB7EF04A5D8BE4F94 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC095BC0F4590502AE97EA42 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FloatCal/Pods-FloatCal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8465A4D96941811DB27E5B9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FloatCal/Pods-FloatCal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC63E85F1C54CB3200D4C116 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEBE23E1C93DB9E001C8410 /* Toolbar.swift in Sources */,
+				ACEBE2271C9338EB001C8410 /* CalendarContentViewController.swift in Sources */,
 				AC63E87C1C54CBC800D4C116 /* PGCalendarBackground.m in Sources */,
 				AC41338A1C8C821E00FE7CFA /* EventMonitor.swift in Sources */,
 				AC63E87E1C54CBC800D4C116 /* PGCalendarView.m in Sources */,
@@ -264,9 +373,11 @@
 		};
 		AC63E8711C54CB3200D4C116 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B8993EEE738151528F4AC33 /* Pods-FloatCal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/ModernLookOSX-dgbgqehdcogkfqgtjqidthvexklx/Build/Products/Debug\"";
 				INFOPLIST_FILE = FloatCal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.praveengowda.app.FloatCal;
@@ -277,9 +388,11 @@
 		};
 		AC63E8721C54CB3200D4C116 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B955C8503EE926ADD7EC115D /* Pods-FloatCal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/ModernLookOSX-dgbgqehdcogkfqgtjqidthvexklx/Build/Products/Debug\"";
 				INFOPLIST_FILE = FloatCal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.praveengowda.app.FloatCal;
