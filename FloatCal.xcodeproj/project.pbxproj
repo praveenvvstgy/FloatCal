@@ -18,10 +18,6 @@
 		AC63E87F1C54CBC800D4C116 /* PGCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */; };
 		ACEBE2271C9338EB001C8410 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */; };
 		ACEBE2281C9338EB001C8410 /* CalendarContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */; };
-		ACEBE2371C93B898001C8410 /* ModernLookOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */; };
-		ACEBE2391C93B997001C8410 /* ModernLookOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */; };
-		ACEBE23A1C93B997001C8410 /* ModernLookOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ACEBE23E1C93DB9E001C8410 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBE23D1C93DB9E001C8410 /* Toolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +27,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ACEBE23A1C93B997001C8410 /* ModernLookOSX.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,8 +52,6 @@
 		AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGCalendarView.xib; sourceTree = "<group>"; };
 		ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
 		ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarContentViewController.xib; sourceTree = "<group>"; };
-		ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModernLookOSX.framework; path = "../../../Library/Developer/Xcode/DerivedData/ModernLookOSX-dgbgqehdcogkfqgtjqidthvexklx/Build/Products/Debug/ModernLookOSX.framework"; sourceTree = "<group>"; };
-		ACEBE23D1C93DB9E001C8410 /* Toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		B955C8503EE926ADD7EC115D /* Pods-FloatCal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatCal.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloatCal/Pods-FloatCal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,8 +61,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11644FDC9A8AF62E13AFEB4 /* Pods_FloatCal.framework in Frameworks */,
-				ACEBE2391C93B997001C8410 /* ModernLookOSX.framework in Frameworks */,
-				ACEBE2371C93B898001C8410 /* ModernLookOSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +79,6 @@
 		9EC3F9370C3ADCFDAE70B27B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ACEBE2361C93B898001C8410 /* ModernLookOSX.framework */,
 				2BA27318E609DE2B4EFBF749 /* Pods_FloatCal.framework */,
 			);
 			name = Frameworks;
@@ -124,7 +114,6 @@
 				AC4133891C8C821E00FE7CFA /* EventMonitor.swift */,
 				ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */,
 				ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */,
-				ACEBE23D1C93DB9E001C8410 /* Toolbar.swift */,
 			);
 			path = FloatCal;
 			sourceTree = "<group>";
@@ -267,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACEBE23E1C93DB9E001C8410 /* Toolbar.swift in Sources */,
 				ACEBE2271C9338EB001C8410 /* CalendarContentViewController.swift in Sources */,
 				AC63E87C1C54CBC800D4C116 /* PGCalendarBackground.m in Sources */,
 				AC41338A1C8C821E00FE7CFA /* EventMonitor.swift in Sources */,
@@ -377,7 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/ModernLookOSX-dgbgqehdcogkfqgtjqidthvexklx/Build/Products/Debug\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = FloatCal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.praveengowda.app.FloatCal;
@@ -392,7 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/ModernLookOSX-dgbgqehdcogkfqgtjqidthvexklx/Build/Products/Debug\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = FloatCal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.praveengowda.app.FloatCal;
