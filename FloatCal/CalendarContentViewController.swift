@@ -8,6 +8,7 @@
 
 import Cocoa
 import EventKit
+import SwiftDate
 
 class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, NSTableViewDataSource, NSTableViewDelegate {
 
@@ -26,7 +27,11 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
             NSAnimationContext.runAnimationGroup({ (context) -> Void in
                 context.duration = 2
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.view.frame.size.height = min(CGFloat(350 + self.eventsPanelHeight), 550)
+                    if self.eventsPanelHeight == 0 {
+                        self.view.frame.size.height = min(CGFloat(350 + self.eventsPanelHeight), 550)
+                    } else {
+                        self.view.frame.size.height = min(CGFloat(350 + self.eventsPanelHeight) + 3, 550)
+                    }
                     self.popover.contentSize = self.view.frame.size
                 })
                 }, completionHandler: { () -> Void in
@@ -35,7 +40,7 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
     }
     var currentDate = NSDate()
     
-    var events = [String]() {
+    var events = [EKEvent]() {
         didSet {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.eventTable.reloadData()
@@ -57,6 +62,7 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         self.toolbar.layer?.backgroundColor =  NSColor(red:0.93, green:0.93, blue:0.93, alpha:1).CGColor
         
         self.didSelectDate(currentDate)
+        self.calendar.selectedDate = currentDate
         
         preferencesWindow = PreferencesWindow()
     }
@@ -69,12 +75,40 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         return 40
     }
     
-    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
-        return self.events[row]
+    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let result = tableView.makeViewWithIdentifier((tableColumn?.identifier)!, owner: self) as! CustomEventCell
+        let event = self.events[row]
+        result.titleLabel.stringValue = event.title
+        result.titleLabel.toolTip = event.title
+        if event.allDay {
+            result.secondaryLabel.stringValue = "All Day"
+        } else {
+            result.secondaryLabel.stringValue = "in " + event.startDate.toRelativeString(abbreviated: false, maxUnits: 2)!
+            result.secondaryLabel.toolTip = "Starts: \(self.events[row].startDate.toString()!), \nEnds: \(self.events[row].endDate.toString()!)"
+        }
+        return result
     }
+    
+    func tableView(tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet) -> NSIndexSet {
+        return NSIndexSet()
+    }
+    
+//    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
+//        return self.events[row]
+//    }
     
     func tableView(tableView: NSTableView, toolTipForCell cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: NSPoint) -> String {
         return "Hello"
+    }
+    
+    func formattedHumanReadable(date: NSDate) -> String {
+        let formatter = NSDateComponentsFormatter()
+        formatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Full
+        formatter.includesApproximationPhrase = true
+        formatter.includesTimeRemainingPhrase = false
+        formatter.allowedUnits = [.Year , .Month, .WeekOfMonth, .Day, .Hour, .Minute]
+        
+        return formatter.stringFromDate(date, toDate: NSDate())!
     }
     
     init() {
@@ -108,7 +142,7 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
                     let events = NSMutableArray(array:eventStore.eventsMatchingPredicate(predicate))
                     for event in events{
                         let calevent = event as! EKEvent
-                        self.events.append(calevent.title)
+                        self.events.append(calevent)
                     }
                 }
                 if selectedDate == self.currentDate && self.eventsPanelHeight != 0 {
@@ -125,8 +159,10 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         NSApplication.sharedApplication().terminate(sender)
     }
     @IBAction func today(sender: NSButton) {
-        self.calendar.selectedDate = NSDate()
-        self.didSelectDate(NSDate())
+        let date = NSDate()
+        self.calendar.date = date
+        self.calendar.selectedDate = date
+        self.didSelectDate(date)
     }
     
     @IBAction func showPreferences(sender: NSButton) {
