@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
@@ -7,6 +7,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CalendarContentViewController" customModule="FloatCal" customModuleProvider="target">
             <connections>
                 <outlet property="calendarContainer" destination="VOI-Bz-dkg" id="ZRb-Nf-8fF"/>
+                <outlet property="eventScrollView" destination="Q6O-YB-ukw" id="xep-BT-PYH"/>
+                <outlet property="eventTable" destination="6Oz-Y4-ffq" id="1WU-Pw-IHO"/>
                 <outlet property="toolbar" destination="Pea-0X-rnC" id="Eoe-cs-ich"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -14,21 +16,20 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="278" height="347"/>
+            <rect key="frame" x="0.0" y="0.0" width="278" height="350"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="VOI-Bz-dkg">
-                    <rect key="frame" x="0.0" y="38" width="278" height="309"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="278" id="CAn-8e-jSa"/>
-                        <constraint firstAttribute="height" constant="309" id="fOQ-jt-1GM"/>
-                    </constraints>
+                <customView id="VOI-Bz-dkg">
+                    <rect key="frame" x="0.0" y="0.0" width="278" height="309"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
-                <customView alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Pea-0X-rnC" customClass="Toolbar" customModule="FloatCal" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="278" height="38"/>
+                <customView wantsLayer="YES" alphaValue="0.59999999999999998" id="Pea-0X-rnC">
+                    <rect key="frame" x="0.0" y="310" width="278" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9To-X2-fD0">
-                            <rect key="frame" x="253" y="10" width="18" height="18"/>
+                        <button verticalHuggingPriority="750" id="9To-X2-fD0">
+                            <rect key="frame" x="253" y="12" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="power-filled" imagePosition="only" alignment="center" alternateImage="power" state="on" imageScaling="proportionallyDown" inset="2" id="pMu-UQ-W4N">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -37,8 +38,9 @@
                                 <action selector="terminate:" target="-2" id="4BS-eO-lYR"/>
                             </connections>
                         </button>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o24-NH-cMW">
-                            <rect key="frame" x="7" y="10" width="18" height="18"/>
+                        <button id="o24-NH-cMW">
+                            <rect key="frame" x="7" y="12" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="today" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="RHk-gG-Hnb">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -48,31 +50,90 @@
                             </connections>
                         </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="38" id="89i-G7-NhS"/>
-                        <constraint firstAttribute="width" constant="278" id="Udk-RH-25K"/>
-                    </constraints>
-                    <shadow key="shadow" blurRadius="1">
-                        <size key="offset" width="0.0" height="1"/>
+                    <shadow key="shadow" blurRadius="2">
+                        <size key="offset" width="0.0" height="-1"/>
                         <color key="color" red="0.80392156862745101" green="0.81960784313725488" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                     </shadow>
+                    <contentFilters>
+                        <ciFilter name="CISharpenLuminance">
+                            <configuration>
+                                <null key="inputImage"/>
+                                <real key="inputSharpness" value="0.40000000000000002"/>
+                            </configuration>
+                        </ciFilter>
+                    </contentFilters>
                 </customView>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="Q6O-YB-ukw">
+                    <rect key="frame" x="0.0" y="-200" width="278" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" id="Pxk-rp-XuF">
+                        <rect key="frame" x="1" y="1" width="276" height="198"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" id="6Oz-Y4-ffq">
+                                <rect key="frame" x="0.0" y="0.0" width="278" height="198"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn editable="NO" width="275" minWidth="40" maxWidth="1000" id="ObD-v9-ClX">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" selectable="YES" allowsUndo="NO" title="Independence Day" id="jOw-hq-L7i">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="key"/>
+                                        <prototypeCellViews>
+                                            <tableCellView id="iam-jB-upW">
+                                                <rect key="frame" x="1" y="1" width="275" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="tCb-Vi-tmf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="275" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="9ON-qU-u7X">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="iam-jB-upW" name="value" keyPath="objectValue" id="iSN-Fb-lli"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <connections>
+                                                    <outlet property="textField" destination="tCb-Vi-tmf" id="Q4r-lp-bnA"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="3vE-c7-o53"/>
+                                    <outlet property="delegate" destination="-2" id="8Ot-yg-In4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="9R6-iH-MxM">
+                        <rect key="frame" x="-100" y="-100" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="xgq-8r-PdQ">
+                        <rect key="frame" x="261" y="1" width="16" height="198"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
-            <constraints>
-                <constraint firstItem="Pea-0X-rnC" firstAttribute="top" secondItem="VOI-Bz-dkg" secondAttribute="bottom" id="616-vH-yuU"/>
-                <constraint firstItem="VOI-Bz-dkg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="7U5-gl-Oin"/>
-                <constraint firstAttribute="bottom" secondItem="Pea-0X-rnC" secondAttribute="bottom" id="bSR-Ah-755"/>
-                <constraint firstAttribute="trailing" secondItem="VOI-Bz-dkg" secondAttribute="trailing" id="if4-45-v2A"/>
-                <constraint firstItem="Pea-0X-rnC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="jbJ-Rt-5gj"/>
-                <constraint firstItem="VOI-Bz-dkg" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="oE7-EP-0ci"/>
-                <constraint firstAttribute="trailing" secondItem="Pea-0X-rnC" secondAttribute="trailing" id="ob5-3J-Lgl"/>
-            </constraints>
-            <point key="canvasLocation" x="64" y="286.5"/>
-        </customView>
-        <customView id="td1-Wc-jEC">
-            <rect key="frame" x="0.0" y="0.0" width="278" height="51"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <point key="canvasLocation" x="87" y="573.5"/>
+            <point key="canvasLocation" x="-21" y="277"/>
         </customView>
     </objects>
     <resources>

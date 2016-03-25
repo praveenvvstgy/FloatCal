@@ -31,7 +31,7 @@
 + (BOOL) isSameDate:(NSDate*)d1 date:(NSDate*)d2 {
 	if(d1 && d2) {
 		NSCalendar *cal = [NSCalendar currentCalendar];
-		cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+		cal.timeZone = [NSTimeZone localTimeZone];
 		unsigned unitFlags = NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth;
 		NSDateComponents *components = [cal components:unitFlags fromDate:d1];
 		NSInteger ry = components.year;
@@ -135,7 +135,7 @@
 	_date = [self toUTC:date];
 	[self layoutCalendar];
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *components = [cal components:unitFlags fromDate:self.date];
 	NSInteger month = components.month;
@@ -154,7 +154,7 @@
 	NSCalendar *cal = [NSCalendar currentCalendar];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *components = [cal components:unitFlags fromDate:d];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	return [cal dateFromComponents:components];
 }
 - (void) setSelectedDate:(NSDate *)selectedDate {
@@ -188,7 +188,7 @@
 
 - (NSDate*) monthDay:(NSInteger)day {
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *components = [cal components:unitFlags fromDate:_date];
 	NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -200,14 +200,14 @@
 
 - (NSInteger) lastDayOfTheMonth {
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	NSRange daysRange = [cal rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self.date];
 	return daysRange.length;
 }
 
 - (NSInteger) colForDay:(NSInteger)day {
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	
 	NSInteger idx = day - cal.firstWeekday;
 	if(idx < 0) idx = 7 + idx;
@@ -216,7 +216,7 @@
 
 + (NSString*) dd:(NSDate*)d {
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	unsigned unitFlags = NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *cpt = [cal components:unitFlags fromDate:d];
 	return [NSString stringWithFormat:@"%ld-%ld-%ld",cpt.year, cpt.month, cpt.day];
@@ -232,7 +232,7 @@
 		}
 	}
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	unsigned unitFlags = NSCalendarUnitWeekday;
 	NSDateComponents *components = [cal components:unitFlags fromDate:[self monthDay:1]];
 	NSInteger firstDay = components.weekday;
@@ -256,7 +256,7 @@
 
 - (void) stepMonth:(NSInteger)dm {
 	NSCalendar *cal = [NSCalendar currentCalendar];
-	cal.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+	cal.timeZone = [NSTimeZone localTimeZone];
 	unsigned unitFlags = NSCalendarUnitDay| NSCalendarUnitYear | NSCalendarUnitMonth;
 	NSDateComponents *components = [cal components:unitFlags fromDate:self.date];
 	NSInteger month = components.month + dm;

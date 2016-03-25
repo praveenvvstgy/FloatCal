@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
@@ -20,6 +21,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     var eventMonitor: EventMonitor?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        let launcherAppIdentifier = "com.praveengowda.app.LauncherApplication"
+        
+        SMLoginItemSetEnabled(launcherAppIdentifier, true)
+        
+        var startedAtLogin = false
+        for app in NSWorkspace.sharedWorkspace().runningApplications {
+            if app.bundleIdentifier == launcherAppIdentifier {
+                startedAtLogin = true
+                break
+            }
+        }
+        
+        if startedAtLogin {
+            NSDistributedNotificationCenter.defaultCenter().postNotificationName("killme", object: NSBundle.mainBundle().bundleIdentifier!)
+        }
+        
         if let button = statusItem.button {
             let today = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate())
             button.image = NSImage(named: "Calendar \(today.day)")
@@ -30,6 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         let calendar = CalendarContentViewController()
         
         popover.contentViewController = calendar
+        calendar.popover = self.popover
         popover.contentSize = calendar.view.frame.size
         popover.appearance = NSAppearance(named: NSAppearanceNameAqua)
         
