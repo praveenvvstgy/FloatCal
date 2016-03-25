@@ -22,9 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         let launcherAppIdentifier = "com.praveengowda.app.LauncherApplication"
-        
-        SMLoginItemSetEnabled(launcherAppIdentifier, true)
-        
+                
         var startedAtLogin = false
         for app in NSWorkspace.sharedWorkspace().runningApplications {
             if app.bundleIdentifier == launcherAppIdentifier {

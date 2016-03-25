@@ -19,6 +19,8 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
     @IBOutlet weak var eventTable: NSTableView!
     weak var popover: NSPopover!
     
+    var preferencesWindow: PreferencesWindow!
+    
     var eventsPanelHeight = 0 {
         didSet {
             NSAnimationContext.runAnimationGroup({ (context) -> Void in
@@ -55,6 +57,8 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         self.toolbar.layer?.backgroundColor =  NSColor(red:0.93, green:0.93, blue:0.93, alpha:1).CGColor
         
         self.didSelectDate(currentDate)
+        
+        preferencesWindow = PreferencesWindow()
     }
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
@@ -67,6 +71,10 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
     
     func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
         return self.events[row]
+    }
+    
+    func tableView(tableView: NSTableView, toolTipForCell cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: NSPoint) -> String {
+        return "Hello"
     }
     
     init() {
@@ -120,4 +128,9 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         self.calendar.selectedDate = NSDate()
         self.didSelectDate(NSDate())
     }
+    
+    @IBAction func showPreferences(sender: NSButton) {
+        preferencesWindow.showWindow(nil)
+    }
+    
 }
