@@ -8,7 +8,6 @@
 
 import Cocoa
 import EventKit
-import SwiftDate
 
 class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, NSTableViewDataSource, NSTableViewDelegate {
 
@@ -65,6 +64,13 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         self.calendar.selectedDate = currentDate
         
         preferencesWindow = PreferencesWindow()
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(NSCalendarDayChangedNotification, object: nil, queue: nil) { (notification) -> Void in
+            let date = NSDate()
+            self.calendar.date = date
+            self.calendar.selectedDate = date
+            self.didSelectDate(date)
+        }
     }
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
@@ -83,8 +89,8 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         if event.allDay {
             result.secondaryLabel.stringValue = "All Day"
         } else {
-            result.secondaryLabel.stringValue = "in " + event.startDate.toRelativeString(abbreviated: false, maxUnits: 2)!
-            result.secondaryLabel.toolTip = "Starts: \(self.events[row].startDate.toString()!), \nEnds: \(self.events[row].endDate.toString()!)"
+            result.secondaryLabel.stringValue = String(event.startDate)
+            result.secondaryLabel.toolTip = "Starts: \(self.events[row].startDate), \nEnds: \(self.events[row].endDate)"
         }
         return result
     }
@@ -97,19 +103,9 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
 //        return self.events[row]
 //    }
     
-    func tableView(tableView: NSTableView, toolTipForCell cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: NSPoint) -> String {
-        return "Hello"
-    }
-    
-    func formattedHumanReadable(date: NSDate) -> String {
-        let formatter = NSDateComponentsFormatter()
-        formatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Full
-        formatter.includesApproximationPhrase = true
-        formatter.includesTimeRemainingPhrase = false
-        formatter.allowedUnits = [.Year , .Month, .WeekOfMonth, .Day, .Hour, .Minute]
-        
-        return formatter.stringFromDate(date, toDate: NSDate())!
-    }
+//    func tableView(tableView: NSTableView, toolTipForCell cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, row: Int, mouseLocation: NSPoint) -> String {
+//        return "Hello"
+//    }
     
     init() {
         super.init(nibName: "CalendarContentViewController", bundle: NSBundle(forClass: self.dynamicType))!

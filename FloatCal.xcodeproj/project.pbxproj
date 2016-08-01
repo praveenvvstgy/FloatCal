@@ -15,12 +15,10 @@
 		AC63E87D1C54CBC800D4C116 /* PGCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8781C54CBC800D4C116 /* PGCalendarCell.m */; };
 		AC63E87E1C54CBC800D4C116 /* PGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */; };
 		AC63E87F1C54CBC800D4C116 /* PGCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */; };
+		ACE712F31D4F38E700935FBF /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE712F21D4F38E700935FBF /* StartAtLoginController.m */; };
 		ACE878A41CA5104800E13642 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE878A21CA5104800E13642 /* PreferencesWindow.swift */; };
 		ACE878A51CA5104800E13642 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE878A31CA5104800E13642 /* PreferencesWindow.xib */; };
 		ACE8C5E01CA52B100075512C /* CustomEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8C5DF1CA52B100075512C /* CustomEventCell.swift */; };
-		ACE8C5E21CA53BD80075512C /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE8C5E11CA53BD80075512C /* SwiftDate.framework */; };
-		ACE8C5E31CA53BD80075512C /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACE8C5E11CA53BD80075512C /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ACE8C5E71CA53C190075512C /* SwiftDate.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE8C5E61CA53C190075512C /* SwiftDate.framework.dSYM */; };
 		ACEBE2271C9338EB001C8410 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */; };
 		ACEBE2281C9338EB001C8410 /* CalendarContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */; };
 		ACEBE2461C93F9FB001C8410 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEBE2451C93F9FB001C8410 /* AppDelegate.swift */; };
@@ -31,24 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ACE8C5E41CA53BD90075512C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				ACE8C5E31CA53BD80075512C /* SwiftDate.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ACE8C5E51CA53BF90075512C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				ACE8C5E71CA53C190075512C /* SwiftDate.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,11 +66,11 @@
 		AC63E8791C54CBC800D4C116 /* PGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCalendarView.h; sourceTree = "<group>"; };
 		AC63E87A1C54CBC800D4C116 /* PGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCalendarView.m; sourceTree = "<group>"; };
 		AC63E87B1C54CBC800D4C116 /* PGCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGCalendarView.xib; sourceTree = "<group>"; };
+		ACE712F11D4F38E700935FBF /* StartAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartAtLoginController.h; sourceTree = "<group>"; };
+		ACE712F21D4F38E700935FBF /* StartAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
 		ACE878A21CA5104800E13642 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		ACE878A31CA5104800E13642 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		ACE8C5DF1CA52B100075512C /* CustomEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventCell.swift; sourceTree = "<group>"; };
-		ACE8C5E11CA53BD80075512C /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = ../Carthage/Carthage/Build/Mac/SwiftDate.framework; sourceTree = "<group>"; };
-		ACE8C5E61CA53C190075512C /* SwiftDate.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftDate.framework.dSYM; path = ../Carthage/Carthage/Build/Mac/SwiftDate.framework.dSYM; sourceTree = "<group>"; };
 		ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
 		ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarContentViewController.xib; sourceTree = "<group>"; };
 		ACEBE2431C93F9FB001C8410 /* LauncherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACE8C5E21CA53BD80075512C /* SwiftDate.framework in Frameworks */,
 				ACEBE2571C93FAFA001C8410 /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,8 +113,6 @@
 		AC63E85A1C54CB3200D4C116 = {
 			isa = PBXGroup;
 			children = (
-				ACE8C5E61CA53C190075512C /* SwiftDate.framework.dSYM */,
-				ACE8C5E11CA53BD80075512C /* SwiftDate.framework */,
 				AC63E8651C54CB3200D4C116 /* FloatCal */,
 				ACEBE2441C93F9FB001C8410 /* LauncherApplication */,
 				AC63E8641C54CB3200D4C116 /* Products */,
@@ -162,6 +145,8 @@
 				ACEBE2251C9338EB001C8410 /* CalendarContentViewController.swift */,
 				ACEBE2261C9338EB001C8410 /* CalendarContentViewController.xib */,
 				ACE8C5DF1CA52B100075512C /* CustomEventCell.swift */,
+				ACE712F11D4F38E700935FBF /* StartAtLoginController.h */,
+				ACE712F21D4F38E700935FBF /* StartAtLoginController.m */,
 			);
 			path = FloatCal;
 			sourceTree = "<group>";
@@ -203,7 +188,6 @@
 				AC63E8601C54CB3200D4C116 /* Frameworks */,
 				AC63E8611C54CB3200D4C116 /* Resources */,
 				ACEBE2541C93FABA001C8410 /* Copy Launcher App */,
-				ACE8C5E41CA53BD90075512C /* Embed Frameworks */,
 				ACE8C5E51CA53BF90075512C /* CopyFiles */,
 			);
 			buildRules = (
@@ -315,6 +299,7 @@
 				AC41338A1C8C821E00FE7CFA /* EventMonitor.swift in Sources */,
 				AC63E87E1C54CBC800D4C116 /* PGCalendarView.m in Sources */,
 				AC63E8671C54CB3200D4C116 /* AppDelegate.swift in Sources */,
+				ACE712F31D4F38E700935FBF /* StartAtLoginController.m in Sources */,
 				ACE8C5E01CA52B100075512C /* CustomEventCell.swift in Sources */,
 				ACE878A41CA5104800E13642 /* PreferencesWindow.swift in Sources */,
 				AC63E87D1C54CBC800D4C116 /* PGCalendarCell.m in Sources */,

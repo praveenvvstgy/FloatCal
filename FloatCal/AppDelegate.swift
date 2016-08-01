@@ -38,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         if let button = statusItem.button {
             let today = NSCalendar.currentCalendar().components(.Day, fromDate: NSDate())
             button.image = NSImage(named: "Calendar \(today.day)")
-            button.action = Selector("toggleCalendar:")
+            button.action = #selector(AppDelegate.toggleCalendar(_:))
             button.target = self
         }
         

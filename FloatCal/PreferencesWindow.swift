@@ -14,6 +14,7 @@ class PreferencesWindow: NSWindowController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     let launcherAppIdentifier = "com.praveengowda.app.LauncherApplication"
+    let loginController = StartAtLoginController(identifier: "com.praveengowda.app.LauncherApplication")
 
     @IBOutlet weak var launchAtLoginBtn: NSButton!
     override func windowDidLoad() {
@@ -29,10 +30,10 @@ class PreferencesWindow: NSWindowController {
         switch sender.state {
         case 0:
             defaults.setValue(sender.state, forKey: "launchAtLogin")
-            SMLoginItemSetEnabled(launcherAppIdentifier, false)
+            loginController.startAtLogin = true
         case 1:
             defaults.setValue(sender.state, forKey: "launchAtLogin")
-            SMLoginItemSetEnabled(launcherAppIdentifier, true)
+            loginController.enabled = false
         default:
             defaults.setValue(0, forKey: "launchAtLogin")
         }
