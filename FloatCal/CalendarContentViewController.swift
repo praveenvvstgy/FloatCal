@@ -89,7 +89,12 @@ class CalendarContentViewController: NSViewController, PGCalendarViewDelegate, N
         if event.allDay {
             result.secondaryLabel.stringValue = "All Day"
         } else {
-            result.secondaryLabel.stringValue = String(event.startDate)
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.LongStyle
+            formatter.timeStyle = .MediumStyle
+            
+            let dateString = formatter.stringFromDate(event.startDate)
+            result.secondaryLabel.stringValue = String(dateString)
             result.secondaryLabel.toolTip = "Starts: \(self.events[row].startDate), \nEnds: \(self.events[row].endDate)"
         }
         return result
